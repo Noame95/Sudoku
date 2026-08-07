@@ -1,0 +1,8 @@
+.idea/
+cmake-build-*/
+.pio/
+__pycache__/
+*.pyc
+secrets.h
+.DS_Store
+Thumbs.db

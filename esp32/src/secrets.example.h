@@ -1,0 +1,5 @@
+#pragma once
+
+#define WIFI_NAME "YOUR_WIFI_NAME"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+#define BACKEND_HOST "YOUR_BACKEND_IP"
