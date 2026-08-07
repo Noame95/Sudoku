@@ -1,5 +1,6 @@
 import subprocess
 from pathlib import Path
+import os
 
 
 class Bridge:
@@ -29,11 +30,12 @@ class Bridge:
     @staticmethod
     def run_cpp(cpp_input):
         current_folder = Path(__file__).resolve().parent
+        executable_name = "cpp.exe" if os.name == "nt" else "cpp"
         cpp_program = (
             current_folder.parent
             / "cpp"
-            / "cmake-build-debug-visual-studio"
-            / "cpp.exe"
+            / "build"
+            / executable_name
         )
         if not cpp_program.exists():
             raise FileNotFoundError

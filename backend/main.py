@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
-from bridge import Bridge
+from backend.bridge import Bridge
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Literal
 
