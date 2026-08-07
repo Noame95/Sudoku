@@ -1,5 +1,7 @@
 console.log("app.js loaded");
-const WEBSOCKET_URL = "ws://127.0.0.1:8000/ws";
+const API_URL = "https://sudoku-solver-game-generator.onrender.com";
+const WEBSOCKET_URL = "wss://sudoku-solver-game-generator.onrender.com/ws";
+
 const socket = new WebSocket(WEBSOCKET_URL);
 socket.onopen = function () {console.log("WebSocket connected");};
 socket.onmessage = function (event) {
@@ -31,7 +33,6 @@ const DELAY_CELL_EFFECT = 10;
 const click = "click"
 
 
-const API_URL = "http://127.0.0.1:8000";
 const POST_METHOD = "POST";
 const CONTENT_TYPE = "Content-Type";
 const JSON_TYPE = "application/json";
