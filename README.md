@@ -17,6 +17,8 @@ In order to learn anything here, I used GPT+ as my assistance. How did I do it?
 - Allows you to play the game by connecting a joystick and a keypad to your own ESP32, after uploading my src code on it :D
 
 ## Keypad settings:
+```text
+
 `0`–`9` | Enter a number 
 `*` | Remove the selected number 
 `#` | Clear the board 
@@ -25,7 +27,6 @@ In order to learn anything here, I used GPT+ as my assistance. How did I do it?
 `C` | Generate a Medium puzzle 
 `D` | Generate a Hard puzzle 
 
-```text
 ┌─────┬─────┬─────┬─────┐
 │  1  │  2  │  3  │  A  │
 ├─────┼─────┼─────┼─────┤
