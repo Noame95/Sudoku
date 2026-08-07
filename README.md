@@ -25,6 +25,7 @@ In order to learn anything here, I used GPT+ as my assistance. How did I do it?
 `C` | Generate a Medium puzzle 
 `D` | Generate a Hard puzzle 
 
+```text
 ┌─────┬─────┬─────┬─────┐
 │  1  │  2  │  3  │  A  │
 ├─────┼─────┼─────┼─────┤
@@ -34,7 +35,7 @@ In order to learn anything here, I used GPT+ as my assistance. How did I do it?
 ├─────┼─────┼─────┼─────┤
 │  *  │  0  │  #  │  D  │
 └─────┴─────┴─────┴─────┘
-
+```
 
 ## Architecture:
 ESP32 (Hardware, C++) -> Backend (Python, FastAPI, Subprocess, Websocket) -> Sudoku Engine (C++) -> Frontend (HTML, JS, CSS)
