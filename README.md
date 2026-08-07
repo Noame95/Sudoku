@@ -1,5 +1,6 @@
 # Sudoku solver and game generator!
 The website has been deployed on https://sudoku-solver-and-game-generator.onrender.com/
+I'm using the free plan version of render so it might feel slow, or have a long prep time.
 
 <img width="701" height="916" alt="image" src="https://github.com/user-attachments/assets/5ff96734-7068-47bd-834c-587fd90377aa" />
 
