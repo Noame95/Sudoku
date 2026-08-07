@@ -69,6 +69,6 @@ Sudoku/
 Made in Kicad
 <img width="1410" height="736" alt="image" src="https://github.com/user-attachments/assets/e8dbf1c8-c6b8-48ba-ab78-c5829b0e338a" />
 
-###HM:
+## HM:
 - The file secrets.h is excluded from the actualy project and is replaced by secrets.example.h, since my personal security data is on the original h file ;-; So change it for your own enviroment.
 - The placement marked by yellow and red on the board is used for the controller navigation.
