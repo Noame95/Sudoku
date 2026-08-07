@@ -1,7 +1,9 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include <WiFiClientSecure.h>
 #include "secrets.h"
+
 
 struct WiFiConfig {
     const char* name;
@@ -16,6 +18,7 @@ struct HttpConfig {
 
 unsigned long lastWifi = 0;
 HTTPClient http;
+WiFiClientSecure secureClient;
 const int SIZE = 9;
 
 struct HttpPaths {
@@ -50,8 +53,8 @@ WiFiConfig wifiConfig = {
 
 HttpConfig httpConfig = {
     .host = BACKEND_HOST,
-    .port = 8000,
-    .baseUrl = String("http://") + BACKEND_HOST + ":8000"
+    .port = 443,
+    .baseUrl = String("https://") + BACKEND_HOST
 };
 
 HttpPaths httpPaths = {
@@ -94,7 +97,7 @@ void wifiConnected() {
 String requestBoard(const char* action, const char* difficulty = "", const String& payload = "") {
     String url = httpConfig.baseUrl + "/" + action;
     if (String(difficulty) != "") {url += "/" + String(difficulty);}
-    const bool initialized = http.begin(url);
+    const bool initialized = http.begin(secureClient, url);
     if (String(payload) != "") {http.addHeader("Content-Type", "application/json");}
 
     if (!initialized) {
@@ -164,7 +167,8 @@ char readNumberBoard() {
 
 bool sendDeviceRequest(const String& request, const char* endpoint) {
     const String url = httpConfig.baseUrl + "/" + endpoint + "/" + request;
-    const bool initialized = http.begin(url);
+    Serial.println(url);
+    const bool initialized = http.begin(secureClient, url);
     if (!initialized) {
         Serial.println("HTTP initialization failed");
         return false;
@@ -184,8 +188,8 @@ void setup() {
     Serial.println("ESP32 READY");
     WiFi.begin(wifiConfig.name, wifiConfig.password);
     wifiConnected();
+    secureClient.setInsecure();
     pinMode(joystickConfig.buttonPin, INPUT_PULLUP);
-    // const String response_generate = requestBoard(httpPaths.generate, httpPaths.easy);
     for (int row = 0; row < KEYPAD_SIZE; row++) {
         pinMode(numberBoardConfig.rowPins[row], OUTPUT);
         digitalWrite(numberBoardConfig.rowPins[row], HIGH);
